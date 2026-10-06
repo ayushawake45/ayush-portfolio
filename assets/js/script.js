@@ -18,7 +18,7 @@ document.querySelectorAll('.navbar a').forEach(anchor => {
 // Typing Animation
 // -----------------------------
 const typed = new Typed('.typing', {
-  strings: ['DSA Enthusiast', 'AI-ML Learner', 'Full Stack Developer', 'Tech Explorer'],
+  strings: ['DSA Enthusiast', 'Full Stack Developer', 'Tech Explorer'],
   typeSpeed: 90,
   backSpeed: 40,
   backDelay: 1600,
@@ -42,7 +42,6 @@ ScrollReveal().reveal('.about .image', { origin: 'left' });
 ScrollReveal().reveal('.skill', { origin: 'bottom', interval: 100 });
 ScrollReveal().reveal('.edu-box', { origin: 'bottom', interval: 200 });
 ScrollReveal().reveal('.project', { origin: 'bottom', interval: 200 });
-ScrollReveal().reveal('.contact form', { origin: 'top' });
 
 // -----------------------------
 // Fade-In on Scroll
@@ -63,35 +62,7 @@ const revealOnScroll = () => {
 window.addEventListener('scroll', revealOnScroll);
 revealOnScroll();
 
-// -----------------------------
-// Contact Form Submission Handler
-// -----------------------------
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
 
-if (contactForm) {
-  contactForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(contactForm);
-    const response = await fetch(contactForm.action, {
-      method: contactForm.method,
-      body: formData,
-      headers: { Accept: 'application/json' },
-    });
-
-    if (response.ok) {
-      formStatus.textContent = '✅ Message sent successfully!';
-      formStatus.style.color = 'green';
-      contactForm.reset();
-
-      setTimeout(() => (formStatus.textContent = ''), 4000);
-    } else {
-      formStatus.textContent = '❌ Oops! There was a problem sending your message.';
-      formStatus.style.color = 'red';
-    }
-  });
-}
 
 // -----------------------------
 // Project Hover Overlay Effect
